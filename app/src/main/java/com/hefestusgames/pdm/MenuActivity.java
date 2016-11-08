@@ -22,7 +22,6 @@ public class MenuActivity extends AppCompatActivity {
         ImageButton calculadoraButton = (ImageButton) findViewById(R.id.botao_calculadora);
         ImageButton cadastroButton = (ImageButton) findViewById(R.id.botao_cadastro);
         ImageButton consultaButton = (ImageButton) findViewById(R.id.botao_consulta);
-        Notificacao n = new Notificacao();
 
         CriarNotificacao();
 
@@ -76,7 +75,7 @@ public class MenuActivity extends AppCompatActivity {
         Notification.Action action01 = new Notification.Action.Builder(R.drawable.registra_notificacao, "Cadastro", tela01PendingIntent).build();
         Notification.Action action02 = new Notification.Action.Builder(R.drawable.consulta_notificacao, "Consulta", tela02PendingIntent).build();
 
-        String textoPequeno = "Vamos continuar seus serviços no aplicativo!";
+        String textoPequeno = "Vamos continuar seus serviços!";
         String textoGrande = "Vamos continuar seus serviços no aplicativo! Selecione uma das opções abaixo e seja direcionado para a opcao de sua escolha!";
         Notification notification = new Notification.Builder(this)
                 .setContentTitle("PDM")
