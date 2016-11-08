@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menu_titulo_tamanho">35dp</dimen>
+    <dimen name="titulo_resultado_tam">35dp</dimen>
+    <dimen name="valor_resultado_tam">35dp</dimen>
+</resources>

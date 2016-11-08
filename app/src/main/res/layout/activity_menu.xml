@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_titulo"
+        android:id="@+id/TextTitulo"
+        android:textSize="@dimen/menu_titulo_tamanho"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/primary_text_light_nodisable"
+        android:textStyle="bold" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ScrollView01"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="5"
+        android:columnCount="2">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/botao_calculadora"
+            android:layout_weight="1"
+            android:src="@drawable/calculadora_icone"
+            android:contentDescription="@string/descricao_botao_calculadora_titulo"
+            android:layout_columnWeight="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/botao_cadastro"
+            android:layout_weight="1"
+            android:src="@drawable/registrar_icone"
+            android:contentDescription="@string/descricao_botao_cadastro"
+            android:layout_columnWeight="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/botao_consulta"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:src="@drawable/consulta_icone"
+            android:contentDescription="@string/descricao_botao_em_breve_titulo"
+            android:layout_columnWeight="1" />
+
+        <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/botao_em_breve"
+        android:layout_weight="1"
+        android:clickable="false"
+        android:src="@drawable/em_breve"
+        android:contentDescription="@string/descricao_botao_em_breve_titulo"
+        android:layout_columnWeight="1" />
+
+    </GridLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/calculadora_visor"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="0" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="7"
+            android:id="@+id/botao_sete"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_sete"
+            android:clickable="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="8"
+            android:id="@+id/botao_oito"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_oito" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="9"
+            android:id="@+id/botao_nove"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_nove" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="/"
+            android:id="@+id/botao_divide"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_divide" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="4"
+            android:id="@+id/botao_quatro"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_quatro" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="5"
+            android:id="@+id/botao_cinco"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_cinco" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="6"
+            android:id="@+id/botao_seis"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_seis" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="*"
+            android:id="@+id/botao_multiplica"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_multiplica" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="1"
+            android:id="@+id/botao_um"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_um" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="2"
+            android:id="@+id/botao_dois"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_dois" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="3"
+            android:id="@+id/botao_tres"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_tres" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="-"
+            android:id="@+id/botao_subtrai"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_subtrai" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="."
+            android:id="@+id/botao_ponto"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_ponto" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:id="@+id/botao_zero"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_zero" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="="
+            android:id="@+id/botao_igual"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_igual" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="+"
+            android:id="@+id/botao_soma"
+            android:layout_weight="1"
+            android:contentDescription="@string/descricao_botao_soma" />
+    </LinearLayout>
+
+</LinearLayout>

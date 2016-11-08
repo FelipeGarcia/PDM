@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PDM</string>
+    <string name="login_botao">Entrar</string>
+    <string name="menu_titulo">Selecione uma função</string>
+    <string name="titulo_resultado">O resultado da operação é:</string>
+    <string name="descricao_logo_titulo">Imagem de um android verde com cadeado no peito</string>
+    <string name="descricao_botao_login">botão para logar no aplicativo com seu usuário</string>
+    <string name="descricao_campo_login">campo para entrar com seu usuário</string>
+    <string name="descricao_campo_senha">campo para entrar com sua senha</string>
+    <string name="descricao_botao_calculadora_titulo">Botão com imagem de uma calculadora, para abrir função calculadora</string>
+    <string name="descricao_botao_em_breve_titulo">Botão com imagem dizendo coming soon, em português, em breve, atualmento desativado</string>
+    <string name="descricao_botao_cinco">Botão cinco</string>
+    <string name="descricao_botao_divide">botão para dividir o número atual</string>
+    <string name="descricao_botao_dois">Botão dois</string>
+    <string name="descricao_botao_igual">Botão igual, para mostrar a resposta da operação</string>
+    <string name="descricao_botao_multiplica">Botão para multiplicar o número atual</string>
+    <string name="descricao_botao_nove">Botão nove</string>
+    <string name="descricao_botao_oito">Botão oito</string>
+    <string name="descricao_botao_ponto">Botão ponto</string>
+    <string name="descricao_botao_quatro">Botão quatro</string>
+    <string name="descricao_botao_seis">Botão seis</string>
+    <string name="descricao_botao_sete">Botão sete</string>
+    <string name="descricao_botao_soma">Botão para somar o número atual</string>
+    <string name="descricao_botao_subtrai">Botão para subtrair o número atual</string>
+    <string name="descricao_botao_tres">Botão três</string>
+    <string name="descricao_botao_um">Botão um</string>
+    <string name="descricao_botao_zero">Botão zero</string>
+    <string name="descricao_botao_cadastro">Botão com imagem de um formulário e lápis, para abrir função cadastro</string>
+    <string-array name="cadastro_funcao_array">
+    <item>Administrador</item>
+    <item>Editor</item>
+    <item>Usuário</item>
+    </string-array>
+    <string name="cadastro_campo_funcao">Função:</string>
+    <string name="cadastro_campo_nome">Nome:</string>
+    <string name="cadastri_radiobutton_feminino">Feminino</string>
+    <string name="cadastro_campo_data_de_nascimento">Data de Nascimento:</string>
+    <string name="cadastro_campo_sexo">Sexo:</string>
+    <string name="cadastro_radiobutton_masculino">Masculino</string>
+    <string name="cadastro_campo_idioma">Idioma:</string>
+    <string name="cadastro_checkbox_espanhol">Espanhol</string>
+    <string name="cadastro_checkbox_ingles">Inglês</string>
+    <string name="cadastro_checkbox_portugues">Português</string>
+    <string name="cadastro_campo_altura">Altura:</string>
+    <string name="cadastro_button_cadastrar">Cadastrar</string>
+</resources>
