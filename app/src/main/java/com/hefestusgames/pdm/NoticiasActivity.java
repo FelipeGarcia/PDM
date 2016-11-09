@@ -22,17 +22,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Felipe on 09/11/2016.
  */
 
-public class NoticiasActivity extends ListActivity implements Callback<NewsMaterias> {
+public class NoticiasActivity extends ListActivity implements Callback < NewsMaterias > {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         requestWindowFeature(Window.FEATURE_PROGRESS);
-        ArrayAdapter<Materia> arrayAdapter = new ArrayAdapter<Materia>(this,
+        ArrayAdapter < Materia > arrayAdapter = new ArrayAdapter < Materia > (this,
                 android.R.layout.simple_list_item_1,
                 android.R.id.text1,
-                new ArrayList<Materia>());
+                new ArrayList < Materia > ());
         setListAdapter(arrayAdapter);
         setProgressBarIndeterminateVisibility(true);
         setProgressBarVisibility(true);
@@ -48,32 +48,23 @@ public class NoticiasActivity extends ListActivity implements Callback<NewsMater
                 .build();
         // Prepara chamada
         NewsAPI stackOverflowAPI = retrofit.create(NewsAPI.class);
-        Call<NewsMaterias> call = stackOverflowAPI.carregarmaterias("android");
+        Call < NewsMaterias > call = stackOverflowAPI.carregarmaterias("android");
 
         ////asynchronous call
         call.enqueue(this);
 
-        //// synchronous call, fazer em outra thread e não na principal!
-        // call.execute()
-
-        //// Para cancelar uma chamada
-        // call.cancel();
-
-        //// calls só podem ser chamadas uma vez, mas você pode cloná-las...
-        //Call<StackOverflowQuestions> c = call.clone();
-        //c.enqueue(this);
     }
 
     @Override
-    public void onResponse(Call<NewsMaterias> call, Response<NewsMaterias> response) {
+    public void onResponse(Call < NewsMaterias > call, Response < NewsMaterias > response) {
         setProgressBarIndeterminateVisibility(false);
-        ArrayAdapter<Materia> adapter = (ArrayAdapter<Materia>) getListAdapter();
+        ArrayAdapter < Materia > adapter = (ArrayAdapter < Materia > ) getListAdapter();
         adapter.clear();
         adapter.addAll(response.body().articles);
     }
 
     @Override
-    public void onFailure(Call<NewsMaterias> call, Throwable t) {
+    public void onFailure(Call < NewsMaterias > call, Throwable t) {
         Toast.makeText(NoticiasActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
     }
 
