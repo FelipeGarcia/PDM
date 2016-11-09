@@ -5,6 +5,8 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import java.text.SimpleDateFormat;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -33,10 +35,9 @@ public class CadastroActivity extends AppCompatActivity {
     private TextView altura;
     private EditText campo_data_nascimento, campo_nome;
     private Spinner spinner;
-
     private RadioGroup radio_sexo;
     private CheckBox ingles, portugues, espanhol;
-    private  Double progresso;
+    private Double progresso;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,37 +60,51 @@ public class CadastroActivity extends AppCompatActivity {
 
         //Adiciona valores ao Spinner
         spinner = (Spinner) findViewById(R.id.funcao_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-        R.array.cadastro_funcao_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter < CharSequence > adapter = ArrayAdapter.createFromResource(this,
+                R.array.cadastro_funcao_array, android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapter);
 
         //Gerencia valor seekbar
         seekbar = (SeekBar) findViewById(R.id.cadastro_seekbar_altura);
         seekbar.setMax(120);
-
+        progresso = 1.50;
+        altura.setText(progresso + "M");
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-               //adiciona 120 pois é o menos valor a se tratar
-                progresso = (progress + 120)/100.0d;
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                //adiciona 120 pois é o menos valor a se tratar
+                progresso = (progress + 120) / 100.0d;
                 altura.setText(progresso + "M");
             }
 
-            public void onStartTrackingTouch(SeekBar seekBar) {/* não faço nada*/}
+            public void onStartTrackingTouch(SeekBar seekBar) { /* não faço nada*/ }
 
-            public void onStopTrackingTouch(SeekBar seekBar) {/*não faço nada*/}
+            public void onStopTrackingTouch(SeekBar seekBar) { /*não faço nada*/ }
         });
 
-        botao_cadastrar.setOnClickListener(new View.OnClickListener(){
+        class AssyncTask extends AsyncTask < Void, Void, Void > {
 
-            @Override
-            public void onClick(View view) {
-            if(!validaNome()){}
-                else if(!validaData()){}
-                    else try {
+            @
+                    Override
+            protected Void doInBackground(Void...params) {
+                try {
                     Salvar();
+
                 } catch (ParseException e) {
                     e.printStackTrace();
+                }
+
+                return null;
+            }
+        }
+
+        botao_cadastrar.setOnClickListener(new View.OnClickListener() {
+
+            @
+                    Override
+            public void onClick(View view) {
+                if (!validaNome()) {} else if (!validaData()) {} else {
+                    final AsyncTask < Void, Void, Void > execute = new AssyncTask().execute();
                 }
 
 
@@ -104,22 +119,21 @@ public class CadastroActivity extends AppCompatActivity {
     public void Salvar() throws ParseException {
 
 
-        RadioButton sexo_selecionado = (RadioButton)findViewById(radio_sexo.getCheckedRadioButtonId());
+        RadioButton sexo_selecionado = (RadioButton) findViewById(radio_sexo.getCheckedRadioButtonId());
         String nascimento = campo_data_nascimento.getText().toString();
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date data = formato.parse(nascimento);
 
-       Cadastro cadastro = new Cadastro(campo_nome.getText().toString(), spinner.getSelectedItem().toString(),
-                                            data, sexo_selecionado.getText().toString(),
-                                            ingles.isChecked(), portugues.isChecked(), espanhol.isChecked(),
-                                            progresso);
-
+        Cadastro cadastro = new Cadastro(campo_nome.getText().toString(), spinner.getSelectedItem().toString(),
+                data, sexo_selecionado.getText().toString(),
+                ingles.isChecked(), portugues.isChecked(), espanhol.isChecked(),
+                progresso, sexo_selecionado.getId(), spinner.getSelectedItemPosition());
         cadastro.save();
         CriarNotificacao();
-        }
+    }
 
-    public Boolean validaNome(){
-        if(campo_nome.getText().toString().isEmpty()){
+    public Boolean validaNome() {
+        if (campo_nome.getText().toString().isEmpty()) {
             shake(campo_nome, "Tenho certeza que você possui um nome, que tal inserir ele?");
             return false;
         }
@@ -127,13 +141,13 @@ public class CadastroActivity extends AppCompatActivity {
         return true;
     }
 
-    public Boolean validaData(){
+    public Boolean validaData() {
 
-         //Pega valor de data e remove as /
+        //Pega valor de data e remove as /
         String data = campo_data_nascimento.getText().toString().replaceAll("[/]", "");
 
         //Verifica se esta completa e já garante que não está vazia
-        if(data.length() != 8){
+        if (data.length() != 8) {
             shake(campo_data_nascimento, "Faltam dados em sua data de nascimento...");
             return false;
         }
@@ -144,18 +158,18 @@ public class CadastroActivity extends AppCompatActivity {
         int ano = Integer.valueOf(data.substring(4, 8));
 
         //verifica se data esta incorreta
-        if(dia <= 0 || dia > 31 ||
-           mes <= 0 || mes > 12 ||
-           ano < 1899 || ano > 2010){
-           shake(campo_data_nascimento, "Você tem certeza que essa é sua data de nascimento?");
-                        return false;
+        if (dia <= 0 || dia > 31 ||
+                mes <= 0 || mes > 12 ||
+                ano < 1899 || ano > 2010) {
+            shake(campo_data_nascimento, "Você tem certeza que essa é sua data de nascimento?");
+            return false;
         }
 
 
         return true;
     }
 
-    public void shake(EditText campo, String erro){
+    public void shake(EditText campo, String erro) {
         Animation shake = AnimationUtils.loadAnimation(CadastroActivity.this, R.anim.shake);
         campo.startAnimation(shake);
         campo.setError(erro);

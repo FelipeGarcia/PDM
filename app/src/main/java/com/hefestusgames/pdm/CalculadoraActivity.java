@@ -18,7 +18,7 @@ public class CalculadoraActivity extends AppCompatActivity {
     private TextView visor;
     private Button zero, um, dois, tres, quatro, cinco, seis, sete, oito, nove, ponto, divide, multiplica, subtrai, soma, igual;
     private String operacao;
-    private float numero1,numero2;
+    private float numero1, numero2;
     private boolean isPonto;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,186 +43,186 @@ public class CalculadoraActivity extends AppCompatActivity {
         soma = (Button) findViewById(R.id.botao_soma);
         igual = (Button) findViewById(R.id.botao_igual);
 
-        zero.setOnClickListener(new View.OnClickListener(){
+        zero.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(0);
-            }
+        public void onClick(View view) {
+            adicionaVisor(0);
+        }
 
         });
 
-        um.setOnClickListener(new View.OnClickListener(){
+        um.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(1);
-            }
+        public void onClick(View view) {
+            adicionaVisor(1);
+        }
 
         });
 
-        dois.setOnClickListener(new View.OnClickListener(){
+        dois.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(2);
-            }
+        public void onClick(View view) {
+            adicionaVisor(2);
+        }
 
         });
 
-        tres.setOnClickListener(new View.OnClickListener(){
+        tres.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(3);
-            }
+        public void onClick(View view) {
+            adicionaVisor(3);
+        }
 
         });
 
-        quatro.setOnClickListener(new View.OnClickListener(){
+        quatro.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(4);
-            }
+        public void onClick(View view) {
+            adicionaVisor(4);
+        }
 
         });
 
-        cinco.setOnClickListener(new View.OnClickListener(){
+        cinco.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(5);
-            }
+        public void onClick(View view) {
+            adicionaVisor(5);
+        }
 
         });
 
-        seis.setOnClickListener(new View.OnClickListener(){
+        seis.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(6);
-            }
+        public void onClick(View view) {
+            adicionaVisor(6);
+        }
 
         });
 
-        sete.setOnClickListener(new View.OnClickListener(){
+        sete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(7);
-            }
+        public void onClick(View view) {
+            adicionaVisor(7);
+        }
 
         });
 
-        oito.setOnClickListener(new View.OnClickListener(){
+        oito.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(8);
-            }
+        public void onClick(View view) {
+            adicionaVisor(8);
+        }
 
         });
 
-        nove.setOnClickListener(new View.OnClickListener(){
+        nove.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(9);
-            }
+        public void onClick(View view) {
+            adicionaVisor(9);
+        }
 
         });
 
-        ponto.setOnClickListener(new View.OnClickListener(){
+        ponto.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                adicionaVisor(".");
-            }
+        public void onClick(View view) {
+            adicionaVisor(".");
+        }
 
         });
 
-        divide.setOnClickListener(new View.OnClickListener(){
+        divide.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                operacao = "divide";
-                numero1 = Float.valueOf(visor.getText().toString());
-                limpaVisor();
-            }
+        public void onClick(View view) {
+            operacao = "divide";
+            numero1 = Float.valueOf(visor.getText().toString());
+            limpaVisor();
+        }
 
         });
 
-        multiplica.setOnClickListener(new View.OnClickListener(){
+        multiplica.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                operacao = "multiplica";
-                numero1 = Float.valueOf(visor.getText().toString());
-                limpaVisor();
-            }
+        public void onClick(View view) {
+            operacao = "multiplica";
+            numero1 = Float.valueOf(visor.getText().toString());
+            limpaVisor();
+        }
 
         });
 
-        subtrai.setOnClickListener(new View.OnClickListener(){
+        subtrai.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                operacao = "subtrai";
-                numero1 = Float.valueOf(visor.getText().toString());
-                limpaVisor();
-            }
+        public void onClick(View view) {
+            operacao = "subtrai";
+            numero1 = Float.valueOf(visor.getText().toString());
+            limpaVisor();
+        }
 
         });
 
-        soma.setOnClickListener(new View.OnClickListener(){
+        soma.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                operacao = "soma";
-                numero1 = Float.valueOf(visor.getText().toString());
-                limpaVisor();
-            }
+        public void onClick(View view) {
+            operacao = "soma";
+            numero1 = Float.valueOf(visor.getText().toString());
+            limpaVisor();
+        }
 
         });
 
-        igual.setOnClickListener(new View.OnClickListener(){
+        igual.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                numero2 = Float.valueOf(visor.getText().toString());
-               calcula();
-            }
+        public void onClick(View view) {
+            numero2 = Float.valueOf(visor.getText().toString());
+            calcula();
+        }
 
         });
 
     }
 
-    private void adicionaVisor(int numero){
-        if(visor.getText().toString().equals("0")){
+    private void adicionaVisor(int numero) {
+        if (visor.getText().toString().equals("0")) {
             visor.setText("");
         }
         visor.setText(visor.getText().toString() + numero);
     }
 
-    private void adicionaVisor(String ponto){
-        if(!isPonto) {
+    private void adicionaVisor(String ponto) {
+        if (!isPonto) {
             visor.setText(visor.getText().toString() + ponto);
             isPonto = true;
         }
     }
 
     //Seta visor para zero, isso permite que sempre tenha um valor para usar, mesmo que seja 0
-    private void limpaVisor(){
+    private void limpaVisor() {
         visor.setText("0");
         isPonto = false;
     }
 
-    private void calcula(){
+    private void calcula() {
         float resultado;
 
         //impede que o usuário abra a calculadora e clique no = sem selecionar uma operação
 
-        if(operacao == null){
+        if (operacao == null) {
             Toast.makeText(getApplicationContext(), "Escolha uma operacao", Toast.LENGTH_SHORT).show();
             return;
         }
-        switch (operacao){
+        switch (operacao) {
             case "divide":
-                resultado = numero1/numero2;
+                resultado = numero1 / numero2;
                 break;
             case "multiplica":
-                resultado = numero1*numero2;
+                resultado = numero1 * numero2;
                 break;
             case "subtrai":
-                resultado = numero1-numero2;
+                resultado = numero1 - numero2;
                 break;
             case "soma":
-                resultado = numero1+numero2;
+                resultado = numero1 + numero2;
                 break;
             default:
                 resultado = numero2;

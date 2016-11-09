@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -57,11 +58,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/botao_em_breve"
         android:layout_weight="1"
-        android:clickable="false"
+        android:clickable="true"
         android:src="@drawable/em_breve"
         android:contentDescription="@string/descricao_botao_em_breve_titulo"
         android:layout_columnWeight="1" />
-
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:id="@+id/menu_clima"
+            android:textSize="34dp"
+            android:text="nublado"
+            android:layout_columnWeight="1" />
     </GridLayout>
+
+
     </ScrollView>
 </LinearLayout>

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hefestusgames.pdm">
 
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
@@ -14,7 +17,7 @@
             android:value="sugar_example.db" />
         <meta-data
             android:name="VERSION"
-            android:value="2" />
+            android:value="4" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
@@ -48,10 +51,15 @@
             android:name=".ConsultaActivity"
             android:launchMode="singleInstance"
             android:parentActivityName=".MenuActivity"/>
-        <!--
- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
-        -->
+        <activity
+            android:name=".EditarActivity"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".ConsultaActivity"/>
+        <activity
+            android:name=".NoticiasActivity"
+            android:launchMode="singleInstance"
+            android:parentActivityName=".MenuActivity"/>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

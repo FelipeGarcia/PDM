@@ -1,6 +1,8 @@
 package com.hefestusgames.pdm;
 
+import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -56,7 +58,9 @@ public class ConsultaActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Cadastro c = (Cadastro) listaPessoas.getItemAtPosition((int) adapterView.getItemIdAtPosition(i));
-                Toast.makeText(getApplicationContext(), c.nome, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(ConsultaActivity.this, EditarActivity.class);
+                intent.putExtra("id", c.getId());
+                startActivity(intent);
             }
 
 
@@ -142,16 +146,12 @@ public class ConsultaActivity extends AppCompatActivity {
         return new TextWatcher() {
 
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                PesquisaLista();
+               PesquisaLista();
             }
 
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {/* nada aqui */}
 
-            }
-
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) {/* nada aqui */}
         };
     }
 
@@ -172,4 +172,5 @@ public class ConsultaActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
