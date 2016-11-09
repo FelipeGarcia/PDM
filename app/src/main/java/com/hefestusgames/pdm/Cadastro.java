@@ -33,10 +33,17 @@ public class Cadastro extends SugarRecord {
         return this.getId();
     }
     public String toString() {
-        return "Nome: " + nome +
+
+        String retorno = "Nome: " + nome +
                 "\nFunção: " + funcao +
-                "\n" + nascimento +
-                "\n" + altura + "M" +
-                "\n" + sexo + "  " + idSexo;
+                "\nAltura: " + altura + "M" +
+                "\nSexo: " + sexo +
+                "\nIdiomas: ";
+        if(ingles)retorno += "Inglês ";
+        if(espanhol)retorno += "Espanhol ";
+        if(portugues)retorno += "Portugês";
+
+
+        return retorno;
     }
 }

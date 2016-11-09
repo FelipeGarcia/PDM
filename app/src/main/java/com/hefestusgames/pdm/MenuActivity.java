@@ -28,7 +28,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity implements Callback<IP>{
 
     public static final int NOTIFICATION_ID = 0;
     /**
@@ -36,7 +36,7 @@ public class MenuActivity extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    public TextView clima;
+    public TextView ip;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
@@ -46,10 +46,10 @@ public class MenuActivity extends AppCompatActivity {
         ImageButton consultaButton = (ImageButton) findViewById(R.id.botao_consulta);
         ImageButton noticiasButton = (ImageButton) findViewById(R.id.botao_em_breve);
 
-        clima = (TextView) findViewById(R.id.menu_clima);
+        ip = (TextView) findViewById(R.id.menu_ip);
 
         CriarNotificacao();
-
+        buscaIP();
         calculadoraButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -171,4 +171,32 @@ public class MenuActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
+
+    public void buscaIP() {
+        setProgressBarIndeterminateVisibility(true);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.ipify.org")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        // Prepara chamada
+        IPAPI stackOverflowAPI = retrofit.create(IPAPI.class);
+        Call<IP> call = stackOverflowAPI.carregarPerguntas("android");
+
+        ////asynchronous call
+        call.enqueue(this);
+
+    }
+
+    @Override
+    public void onResponse(Call<IP> call, Response<IP> response) {
+        setProgressBarIndeterminateVisibility(false);
+        ip.setText("IP: " + response.body().ip);
+    }
+
+    @Override
+    public void onFailure(Call<IP> call, Throwable t) {
+        Toast.makeText(MenuActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+    }
+
+
 }
